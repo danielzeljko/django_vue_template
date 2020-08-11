@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'dummykey'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -30,11 +30,13 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATIC_URL = os.environ['STATIC_URL']
+AWS_STORAGE_BUCKET_NAME = 'django-ruby-static-2'
+AWS_ACCESS_KEY_ID = 'AKIAJ3AJM5NAOSDSU62Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_S3_CUSTOM_DOMAIN = 'django-ruby-static-2.s3.amazonaws.com'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'https://django-ruby-static-2.s3.amazonaws.com/static/'
 
 # Application definition
 
