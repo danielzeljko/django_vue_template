@@ -30,7 +30,11 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_URL = os.environ['STATIC_URL']
 
 # Application definition
 
